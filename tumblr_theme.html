@@ -10,9 +10,9 @@
 
     {block:Hidden}
     <!-- Tumblr Meta -->
-    <meta name='color:HeaderColor' content='#000000'/>
-    <meta name='color:HeaderAccentColor' content='#ffffff'>
-    <meta name='color:HeaderTextColor' content='#ffffff'/>
+    <meta name='color:BodyColor' content='#000000'/>
+    <meta name='color:BodyAccentColor' content='#ffffff'>
+    <meta name='color:BodyTextColor' content='#ffffff'/>
     <meta name='font:Body' content='Arial, Helvetica, sans-serif'/>
     <meta name='text:CustomBodyFont' content=''/>
     <meta name='text:CustomHeadingFont' content=''/>
@@ -39,7 +39,7 @@
     <style type='text/css'>
         body {
             margin: 0px;
-            background-color: {BackgroundColor};
+            background-color: {color:BodyColor};
             font-family: '{text:CustomBodyFont}', {font:Body};
         }
 
@@ -48,8 +48,8 @@
         }
 
         .banner-theme {
-            background-color: {color:HeaderColor};
-            color: {color:HeaderTextColor};
+            background-color: {BackgroundColor};
+            color: {AccentColor};
         }
 
         #banner {
@@ -82,7 +82,7 @@
             z-index: 1;
         }
         #banner .blog-title {
-            display:block;
+            display: block;
             text-align: center;
             margin-top: 0px;
             margin-bottom: 0px;
@@ -108,7 +108,7 @@
             display: block;
             text-decoration: none;
             margin-bottom: 7px;
-            color: {color:HeaderAccentColor};
+            color: {AccentColor};
         }
         #social-links i {
             display: block;
@@ -153,8 +153,8 @@
             transition: width .55s ease;
 
             border: none;
-            border-bottom: solid {color:HeaderTextColor} 1px;
-            color: {color:HeaderTextColor};
+            border-bottom: solid {AccentColor} 1px;
+            color: {AccentColor};
 
             /*background-color: #000;
             opacity: 0.5;*/
@@ -163,7 +163,7 @@
         .search-bar input:-moz-placeholder, /* Firefox 18- */
         .search-bar input::-moz-placeholder,  /* Firefox 19+ */
         .search-bar input:-ms-input-placeholder {
-           color: {color:HeaderTextColor};
+           color: {AccentColor};
         }
         .search-bar .icon {
             position: absolute;
