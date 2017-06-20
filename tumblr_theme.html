@@ -13,11 +13,13 @@
     <meta name='color:BodyColor' content='#000000'/>
     <meta name='color:BodyAccentColor' content='#ffffff'>
     <meta name='color:BodyTextColor' content='#ffffff'/>
+
     <meta name='font:Body' content='Arial, Helvetica, sans-serif'/>
-    <meta name='text:CustomBodyFont' content=''/>
-    <meta name='text:CustomHeadingFont' content=''/>
     <meta name='text:CustomTitleFont' content=''/>
+    <meta name='text:CustomHeadingFont' content=''/>
+    <meta name='text:CustomBodyFont' content=''/>
     <meta name='text:GoogleFontImports' content=''/>
+
     <meta name='text:WebsiteLink' content=''/>
     <meta name='text:FacebookLink' content=''/>
     <meta name='text:TwitterLink' content=''/>
@@ -29,10 +31,12 @@
     <link rel='alternate' type='application/rss+xml' href='{RSS}'/>
     <link rel='apple-touch-icon-precomposed' href='{PortraitURL-128}'>
 
+    <!-- Import google fonts  -->
     {block:IfGoogleFontImports}
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family={text:GoogleFontImports}'>
     {/block:IfGoogleFontImports}
 
+    <!-- Import FontAwesome -->
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
 
     <!-- CSS -->
@@ -47,17 +51,15 @@
             border-radius: 50%;
         }
 
-        .banner-theme {
+        .accent-theme {
             background-color: {BackgroundColor};
             color: {AccentColor};
         }
 
-        #banner {
+        #header {
             display: block;
-            padding-left: 5%;
-            padding-right: 5%;
-            padding-bottom: 10px;
-            padding-top: 24px;
+            padding: 2% 5%;
+            height: 35vh;
 
             {block:ShowHeaderImage}
                 background-image: url('{HeaderImage}');
@@ -66,22 +68,29 @@
                 background-position: center;
             {/block:ShowHeaderImage}
         }
-        #banner .avatar {
+        #header .column {
+            height: 100%;
+            float: left;
+            position: relative;
+        }
+        #header .column.minor {
+            width: 25%;
+        }
+        #header .column.major {
+            width: 50%;
+        }
+
+        #blog-details .avatar {
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
-        #banner .blog-description {
+        #blog-details .blog-description {
             margin-top: 0px;
             margin-bottom: 0px;
             text-align: center;
         }
-        #banner .blog-details {
-            min-height: 15vh;
-            position: relative;
-            z-index: 1;
-        }
-        #banner .blog-title {
+        #blog-details .blog-title {
             display: block;
             text-align: center;
             margin-top: 0px;
@@ -90,16 +99,11 @@
             font-family: '{text:CustomTitleFont}', {TitleFont};
             color: {TitleColor};
         }
-        #banner .blog-title a {
+        #blog-details .blog-title a {
             color: inherit;
             text-decoration: none;
         }
-        #social-links-wrapper {
-            width: 90%;
-            height: auto;
-            position: absolute;
-            z-index: 0;
-        }
+
         #social-links {
             padding-top: 10px;
             float: right;
@@ -115,6 +119,11 @@
             margin-left: auto;
             margin-right: auto;
             text-align: center;
+        }
+
+        #search-column .search {
+            position: absolute;
+            bottom: 0;
         }
 
         .content {
@@ -133,7 +142,7 @@
 
         /* search bar */
         .search-bar {
-            width: 25%;
+            width: 100%;
             vertical-align: middle;
             white-space: nowrap;
             position: relative;
@@ -155,9 +164,6 @@
             border: none;
             border-bottom: solid {AccentColor} 1px;
             color: {AccentColor};
-
-            /*background-color: #000;
-            opacity: 0.5;*/
         }
         .search-bar input::-webkit-input-placeholder,
         .search-bar input:-moz-placeholder, /* Firefox 18- */
@@ -191,43 +197,51 @@
 </head>
 
 <body class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage}is-permalink-page{/block:PermalinkPage}'>
-    <header class='masthead banner-theme' role='banner' id='banner'>
-        <div class='meta-wrapper'>
-            <div id='social-links-wrapper'>
-                <div id='social-links'>
-                    {block:IfWebsiteLink}
-                    <a href='{text:WebsiteLink}'><i class='fa fa-globe fa-2x' aria-hidden='true'></i></a>
-                    {block:IfWebsiteLink}
-                    {block:IfFacebookLink}
-                    <a href='{text:FacebookLink}'><i class='fa fa-facebook fa-2x' aria-hidden='true'></i></a>
-                    {/block:IfFacebookLink}
-                    {block:IfTwitterLink}
-                    <a href='{text:TwitterLink}'><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a>
-                    {/block:IfTwitterLink}
-                    {block:IfInstagramLink}
-                    <a href='{text:InstagramLink}'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i></a>
-                    {/block:IfInstagramLink}
-                </div>
-            </div>
+    <header id='header' class='accent-theme' role='banner'>
 
+        <div class='column minor' id='search-column'>
+            <form class='search' action='/search' method='get'>
+                <div class='search-bar'>
+                    <span class='icon'><i class='fa fa-search'></i></span>
+                    <input type='text' name='q' value='{SearchQuery}' placeholder='...'/>
+                </div>
+            </form>
+        </div>
+
+        <div class='column major' id='blog-details'>
             {block:ShowAvatar}
             <img class='avatar avatar-shape-{AvatarShape}' src='{PortraitURL-128}'/>
             {/block:ShowAvatar}
 
-            <div class='blog-details'>
-                {block:ShowTitle}
-                <h1 class='blog-title'>
-                    <a href='/' title='{lang:Home}'>{Title}</a>
-                </h1>
-                {/block:ShowTitle}
+            {block:ShowTitle}
+            <h1 class='blog-title'>
+                <a href='/' title='{lang:Home}'>{Title}</a>
+            </h1>
+            {/block:ShowTitle}
 
-                {block:ShowDescription}
-                <p class='blog-description'>{Description}</p>
-                {/block:ShowDescription}
+            {block:ShowDescription}
+            <p class='blog-description'>{Description}</p>
+            {/block:ShowDescription}
+        </div>
+
+        <div class='column minor'>
+            <div id='social-links'>
+                {block:IfWebsiteLink}
+                <a href='{text:WebsiteLink}'><i class='fa fa-globe fa-2x' aria-hidden='true'></i></a>
+                {block:IfWebsiteLink}
+                {block:IfFacebookLink}
+                <a href='{text:FacebookLink}'><i class='fa fa-facebook fa-2x' aria-hidden='true'></i></a>
+                {/block:IfFacebookLink}
+                {block:IfTwitterLink}
+                <a href='{text:TwitterLink}'><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a>
+                {/block:IfTwitterLink}
+                {block:IfInstagramLink}
+                <a href='{text:InstagramLink}'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i></a>
+                {/block:IfInstagramLink}
             </div>
         </div>
 
-        <div class='nav-wrapper'>
+        <!-- <div class='nav-wrapper'>
             <nav>
                 <ul>
                     {block:HasPages}
@@ -251,14 +265,7 @@
                     {/block:AskEnabled}
                 </ul>
             </nav>
-        </div>
-
-        <form class='search' action='/search' method='get'>
-            <div class='search-bar'>
-                <span class='icon'><i class='fa fa-search'></i></span>
-                <input type='text' name='q' value='{SearchQuery}' placeholder='...'/>
-            </div>
-        </form>
+        </div> -->
 
         <div class='clear'></div>
     </header>
@@ -493,7 +500,7 @@
     </nav>
     {/block:Pagination}
 
-    <footer class='banner-theme'>
+    <footer class='accent-theme'>
         <p>{Title} // {CopyrightYears}<p>
     </footer>
 </body>
