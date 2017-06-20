@@ -16,7 +16,10 @@
     <meta name='text:CustomBodyFont' content=''/>
     <meta name='text:CustomTitleFont' content=''/>
     <meta name='text:GoogleFontImports' content=''/>
+    <meta name='text:WebsiteLink' content=''/>
+    <meta name='text:FacebookLink' content=''/>
     <meta name='text:TwitterLink' content=''/>
+    <meta name='text:InstagramLink' content=''/>
     {/block:Hidden}
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -27,6 +30,8 @@
     {block:IfGoogleFontImports}
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family={text:GoogleFontImports}'>
     {/block:IfGoogleFontImports}
+
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
 
     <!-- CSS -->
     <style type='text/css'>
@@ -47,8 +52,10 @@
 
         #banner {
             display: block;
-            padding: 10px;
-            padding-top: 20px;
+            padding-left: 5%;
+            padding-right: 5%;
+            padding-bottom: 10px;
+            padding-top: 24px;
 
             {block:ShowHeaderImage}
                 background-image: url('{HeaderImage}');
@@ -80,6 +87,27 @@
             color: {TitleColor};
             text-decoration: none;
         }
+        #social-links-wrapper {
+            width: 90%;
+            height: auto;
+            position: absolute;
+        }
+        #social-links {
+            padding-top: 10px;
+            float: right;
+        }
+        #social-links a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 7px;
+            color: {color:HeaderTextColor};
+        }
+        #social-links i {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
 
         .content {
             display: block;
@@ -105,12 +133,25 @@
 </head>
 
 <body class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage}is-permalink-page{/block:PermalinkPage}'>
-    {block:IfTwitterLink}
-    <p>{text:TwitterLink}</p>
-    {/block:IfTwitterLink}
-
     <header class='masthead banner-theme' role='banner' id='banner'>
         <div class='meta-wrapper'>
+            <div id='social-links-wrapper'>
+                <div id='social-links'>
+                    {block:IfWebsiteLink}
+                    <a href='{text:WebsiteLink}'><i class='fa fa-globe fa-2x' aria-hidden='true'></i></a>
+                    {block:IfWebsiteLink}
+                    {block:IfFacebookLink}
+                    <a href='{text:FacebookLink}'><i class='fa fa-facebook fa-2x' aria-hidden='true'></i></a>
+                    {/block:IfFacebookLink}
+                    {block:IfTwitterLink}
+                    <a href='{text:TwitterLink}'><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a>
+                    {/block:IfTwitterLink}
+                    {block:IfInstagramLink}
+                    <a href='{text:InstagramLink}'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i>
+                    {/block:IfInstagramLink}
+                </div>
+            </div>
+
             {block:ShowAvatar}
             <img class='avatar avatar-shape-{AvatarShape}' src='{PortraitURL-128}'/>
             {/block:ShowAvatar}
