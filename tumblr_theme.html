@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>{block:TagPage}{Tag} | {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} | {/block:SearchPage}{block:PostSummary}{PostSummary} | {/block:PostSummary}{Title}</title>
+
+    {block:Description}
+    <meta name='description' content='{MetaDescription}'/>
+    {/block:Description}
+
+    {block:Hidden}
+    <!-- Tumblr Meta -->
+    <meta name='color:HeaderColor' content='#000000'/>
+    <meta name='color:HeaderTextColor' content='#ffffff'/>
+    <meta name='font:Body' content='Arial, Helvetica, sans-serif'/>
+    <meta name='text:CustomBodyFont' content=''/>
+    <meta name='text:CustomTitleFont' content=''/>
+    <meta name='text:GoogleFontImports' content=''/>
+    <meta name='text:TwitterLink' content=''/>
+    {/block:Hidden}
+
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='shortcut icon' href='{Favicon}'/>
+    <link rel='alternate' type='application/rss+xml' href='{RSS}'/>
+    <link rel='apple-touch-icon-precomposed' href='{PortraitURL-128}'>
+
+    {block:IfGoogleFontImports}
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family={text:GoogleFontImports}'>
+    {/block:IfGoogleFontImports}
+
+    <!-- CSS -->
+    <style type='text/css'>
+        body {
+            margin: 0px;
+            background-color: {BackgroundColor};
+            font-family: '{text:CustomBodyFont}', {font:Body};
+        }
+
+        .avatar-shape-circle {
+            border-radius: 50%;
+        }
+
+        .banner-theme {
+            background-color: {color:HeaderColor};
+            color: {color:HeaderTextColor};
+        }
+
+        #banner {
+            display: block;
+            padding: 10px;
+            padding-top: 20px;
+
+            {block:ShowHeaderImage}
+                background-image: url('{HeaderImage}');
+                background-repeat: no-repeat;
+                background-attachment: relative;
+                background-position: center;
+            {/block:ShowHeaderImage}
+        }
+        #banner .avatar {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #banner .blog-description {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+        }
+        #banner .blog-details {
+            min-height: 15vh;
+        }
+        #banner .blog-title {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            text-align: center;
+            font-family: '{text:CustomTitleFont}', {TitleFont};
+        }
+        #banner .blog-title a {
+            color: {TitleColor};
+            text-decoration: none;
+        }
+
+        .content {
+            display: block;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .post-content {
+            max-width: 100%;
+        }
+        .post-content img {
+            max-width: 100%;
+        }
+
+        footer {
+            padding: 10px;
+            text-align: center;
+        }
+
+        {CustomCSS}
+    </style>
+</head>
+
+<body class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage}is-permalink-page{/block:PermalinkPage}'>
+    {block:IfTwitterLink}
+    <p>{text:TwitterLink}</p>
+    {/block:IfTwitterLink}
+
+    <header class='masthead banner-theme' role='banner' id='banner'>
+        <div class='meta-wrapper'>
+            {block:ShowAvatar}
+            <img class='avatar avatar-shape-{AvatarShape}' src='{PortraitURL-128}'/>
+            {/block:ShowAvatar}
+
+            <div class='blog-details'>
+                {block:ShowTitle}
+                <h1 class='blog-title'>
+                    <a href='/' title='{lang:Home}'>{Title}</a>
+                </h1>
+                {/block:ShowTitle}
+
+                {block:ShowDescription}
+                <p class='blog-description'>{Description}</p>
+                {/block:ShowDescription}
+            </div>
+        </div>
+
+        <div class='nav-wrapper'>
+            <nav>
+                <ul>
+                    {block:HasPages}
+                    {block:Pages}
+                    <li>
+                        <a href="{URL}">{Label}</a>
+                    </li>
+                    {/block:Pages}
+                    {/block:HasPages}
+
+                    {block:SubmissionsEnabled}
+                    <li>
+                        <a href='/submit'>{SubmitLabel}</a>
+                    </li>
+                    {/block:SubmissionsEnabled}
+
+                    {block:AskEnabled}
+                    <li>
+                        <a href='/ask'>{AskLabel}</a>
+                    </li>
+                    {/block:AskEnabled}
+                </ul>
+            </nav>
+        </div>
+
+        <form action='/search' method='get'>
+            <input type='text' name='q' value='{SearchQuery}' placeholder='{lang:Search}'/>
+        </form>
+    </header>
+
+    <!-- Search results -->
+    {block:SearchPage}
+    <div class='search-page message'>
+    </div>
+    {/block:SearchPage}
+
+    {block:TagPage}
+    <div class='tag-page message'>
+    </div>
+    {/block:TagPage}
+
+    <!--
+    If there is an issue with spacing, remove the spaces between
+    {/block} and the next {block}
+    -->
+    <main class='content' role='main' {block:IndexPage}data-columns{/block:IndexPage}>
+    {block:Posts}
+        <article {block:PermalinkPage}class='js-column'{/block:PermalinkPage}>
+        {block:Text}
+        <div class='post-content type-text'>
+            {block:Title}
+                <h1 class='title'>
+                    <a href='{Permalink}'>{Title}</a>
+                </h1>
+            {/block:Title}
+            {Body}
+        </div>
+        {/block:Text}
+
+        {block:Exif}
+        <ul class="exif">
+            <li>{block:Camera}Camera: {Camera}{/block:Camera}</li>
+            <li>{block:Aperture}Aperture: {Aperture}{/block:Aperture}</li>
+            <li>{block:Exposure}Exposure: {Exposure}{/block:Exposure}</li>
+            <li>{block:FocalLength}Focal Length: {FocalLength}{/block:FocalLength}</li>
+        </ul>
+        {/block:Exif}
+
+        {block:Photo}
+        <figure class='post-content type-photo'>
+            {LinkOpenTag}
+                <img src='{PhotoURL-HighRes}' alt='{PhotoAlt}'/>
+            {LinkCloseTag}
+
+            {block:Caption}
+                <figcaption class='caption'>{Caption}</figcaption>
+            {/block:Caption}
+        </figure>
+        {/block:Photo}
+
+        {block:Panorama}
+        <div class='post-content type-panorama'>
+            {LinkOpenTag}
+                <img src='{PhotoURL-Panorama}' alt='{PhotoAlt}'/>
+            {LinkCloseTag}
+            {block:Caption}
+                <div class='caption'>{Caption}</div>
+            {/block:Caption}
+        </div>
+        {/block:Panorama}
+
+        {block:Photoset}
+        <figure class='post-content type-photoset'>
+            {Photoset}
+
+            {block:Caption}
+                <figcaption class='caption'>{Caption}</figcaption>
+            {/block:Caption}
+        </figure>
+        {/block:Photoset}
+
+        {block:Quote}
+        <div class='post-content type-quote'>
+            <blockquote>{Quote}</blockquote>
+
+            {block:Source}
+                <cite class='caption source'>{Source}</cite>
+            {/block:Source}
+        </div>
+        {/block:Quote}
+
+        {block:Link}
+        <div class='post-content type-link'>
+            <a href='{URL}' class='link-name' {Target}>{Name}</a>
+            {block:Description}
+                <div class='description'>{Description}</div>
+            {/block:Description}
+        </div>
+        {/block:Link}
+
+        {block:Chat}
+        <div class='post-content type-chat'>
+            {block:Title}
+                <h3><a href='{Permalink}'>{Title}</a></h3>
+            {/block:Title}
+
+            <ul class='chat-lines'>
+                {block:Lines}
+                <li class='{Alt} user_{UserNumber}'>
+                    {block:Label}<span class='label'>{Label}</span>{/block:Label}
+                    {Line}
+                </li>
+                {/block:Lines}
+            </ul>
+        </div>
+        {/block:Chat}
+
+        {block:Audio}
+        <div class='post-content type-audio'>
+            {block:AudioEmbed}
+                {AudioEmbed color="white"}
+            {/block:AudioEmbed}
+            {block:Caption}
+                <div class='caption'>{Caption}</div>
+            {/block:Caption}
+        </div>
+        {/block:Audio}
+
+        {block:Video}
+        <div class='post-content type-video'>
+            {Video-700}
+
+            {block:Caption}
+                <div class='caption'>{Caption}</div>
+            {/block:Caption}
+        </div>
+        {/block:Video}
+
+        {block:Answer}
+        <div class='post-content type-answer'>
+            <div class='question'>
+                <p class='asker'>
+                    <span class='user-name'>{Asker}</span>{block:English} asked{/block:English}:
+                </p>
+                <h2 class='title'>{Question}</h2>
+            </div>
+
+            {block:Answerer}
+            <div class='answer'>
+                <p class='answerer'>
+                    <span class='user-name'>{Answerer}</span>{block:English} answered{/block:English}:
+                </p>
+
+                <div class='caption'>
+                    {Answer}
+                </div>
+
+                <div class='replies'>
+                    {Replies}
+                </div>
+            </div>
+            {/block:Answerer}
+        </div>
+        {/block:Answer}
+
+        {block:Date}
+        <footer class='contentinfo' role='contentinfo'>
+            <a href='{Permalink}' title='{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}'>
+                {TimeAgo}
+            </a>
+
+            {block:NoteCount}
+            <a class='note-count' href='{Permalink}#notes'>
+                {NoteCountWithLabel}
+            </a>
+            {/block:NoteCount}
+
+            {block:RebloggedFrom}
+            <a class='reblog-link' href='{ReblogParentURL}'>
+                {ReblogParentName}
+            </a>
+            {/block:RebloggedFrom}
+
+            {block:PermalinkPage}
+                {block:HasTags}
+                <ul class='tags'>
+                    {block:Tags}
+                    <li>
+                        <a href='{TagUrl}'>#{Tag}</a>
+                    </li>
+                    {/block:Tags}
+                </ul>
+                {/block:HasTags}
+
+                {block:PostNotes}
+                <div class='post-notes'>
+                    {PostNotes}
+                </div>
+                {/block:PostNotes}
+            {/block:PermalinkPage}
+        </footer>
+        {/block:Date}
+        </article>
+    {/block:Posts}
+    </main>
+
+    {block:SearchPage}
+    <div class='search-page message'>
+        {block:SearchResults}
+        <p class='search-results'>{lang:Search results for SearchQuery 2}</p>
+        {/block:SearchResults}
+
+        {block:NoSearchResults}
+        <p class='search-results'>{lang:Sorry no results for SearchQuery 2}</p>
+        {/block:NoSearchResults}
+
+        <span class='divider'></span>
+    </div>
+    {/block:SearchPage}
+
+    {block:TagPage}
+    <div class='tag-page message'>
+        <p class='tag-wrapper'>{lang:Showing posts tagged Tag 2}</p>
+        <span class='divider'></span>
+    </div>
+    {/block:TagPage}
+
+    {block:Pagination}
+    <nav class='pagination'>
+        <ul>
+            {block:PreviousPage}
+            <li><a href='{PreviousPage}'>{lang:Previous}</a></li>
+            {/block:PreviousPage}
+            {block:NextPage}
+            <li><a href='{NextPage}'>{lang:Next}</a></li>
+            {/block:NextPage}
+        </ul>
+    </nav>
+    {/block:Pagination}
+
+    <footer class='banner-theme'>
+        <p>{Title} // {CopyrightYears}<p>
+    </footer>
+</body>
+</html>
