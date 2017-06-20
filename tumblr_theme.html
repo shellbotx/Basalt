@@ -78,21 +78,27 @@
         }
         #banner .blog-details {
             min-height: 15vh;
+            position: relative;
+            z-index: 1;
         }
         #banner .blog-title {
+            display:block;
+            text-align: center;
             margin-top: 0px;
             margin-bottom: 0px;
-            text-align: center;
+            z-index: 1;
             font-family: '{text:CustomTitleFont}', {TitleFont};
+            color: {TitleColor};
         }
         #banner .blog-title a {
-            color: {TitleColor};
+            color: inherit;
             text-decoration: none;
         }
         #social-links-wrapper {
             width: 90%;
             height: auto;
             position: absolute;
+            z-index: 0;
         }
         #social-links {
             padding-top: 10px;
@@ -199,7 +205,7 @@
                     <a href='{text:TwitterLink}'><i class='fa fa-twitter fa-2x' aria-hidden='true'></i></a>
                     {/block:IfTwitterLink}
                     {block:IfInstagramLink}
-                    <a href='{text:InstagramLink}'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i>
+                    <a href='{text:InstagramLink}'><i class='fa fa-instagram fa-2x' aria-hidden='true'></i></a>
                     {/block:IfInstagramLink}
                 </div>
             </div>
@@ -259,12 +265,12 @@
 
     <!-- Search results -->
     {block:SearchPage}
-    <div class='search-page message'>
+    <div class='content search-page message'>
     </div>
     {/block:SearchPage}
 
     {block:TagPage}
-    <div class='tag-page message'>
+    <div class='content tag-page message'>
     </div>
     {/block:TagPage}
 
@@ -278,9 +284,9 @@
         {block:Text}
         <div class='post-content type-text'>
             {block:Title}
-                <h1 class='title'>
-                    <a href='{Permalink}'>{Title}</a>
-                </h1>
+                <a href='{Permalink}'>
+                    <h1 class='title'>{Title}</h1>
+                </a>
             {/block:Title}
             {Body}
         </div>
