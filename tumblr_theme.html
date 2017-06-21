@@ -10,20 +10,20 @@
 
     {block:Hidden}
     <!-- Tumblr Meta -->
-    <meta name='color:BodyColor' content='#000000'/>
-    <meta name='color:BodyAccentColor' content='#ffffff'>
-    <meta name='color:BodyTextColor' content='#ffffff'/>
+    <meta name='color:Body Color' content='#ffffff'/>
+    <meta name='color:Body Accent Color' content='#0000ff'>
+    <meta name='color:Body Text Color' content='#000000'/>
 
     <meta name='font:Body' content='Arial, Helvetica, sans-serif'/>
-    <meta name='text:CustomTitleFont' content=''/>
-    <meta name='text:CustomHeadingFont' content=''/>
-    <meta name='text:CustomBodyFont' content=''/>
-    <meta name='text:GoogleFontImports' content=''/>
+    <meta name='text:Custom Title Font' content=''/>
+    <meta name='text:Custom Header Font' content=''/>
+    <meta name='text:Custom Body Font' content=''/>
+    <meta name='text:Google Font Imports' content=''/>
 
-    <meta name='text:WebsiteLink' content=''/>
-    <meta name='text:FacebookLink' content=''/>
-    <meta name='text:TwitterLink' content=''/>
-    <meta name='text:InstagramLink' content=''/>
+    <meta name='text:Website Link' content=''/>
+    <meta name='text:Facebook Link' content=''/>
+    <meta name='text:Twitter Link' content=''/>
+    <meta name='text:Instagram Link' content=''/>
     {/block:Hidden}
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
@@ -33,7 +33,7 @@
 
     <!-- Import google fonts  -->
     {block:IfGoogleFontImports}
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family={text:GoogleFontImports}'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family={text:Google Font Imports}'>
     {/block:IfGoogleFontImports}
 
     <!-- Import FontAwesome -->
@@ -43,8 +43,9 @@
     <style type='text/css'>
         body {
             margin: 0px;
-            background-color: {color:BodyColor};
-            font-family: '{text:CustomBodyFont}', {font:Body};
+            background-color: {color:Body Color};
+            color: {color:Body Text Color};
+            font-family: '{text:Custom Body Font}', {font:Body};
         }
 
         .avatar-shape-circle {
@@ -96,7 +97,7 @@
             margin-top: 0px;
             margin-bottom: 0px;
             z-index: 1;
-            font-family: '{text:CustomTitleFont}', {TitleFont};
+            font-family: '{text:Custom Title Font}', {TitleFont};
             color: {TitleColor};
         }
         #blog-details .blog-title a {
@@ -131,6 +132,10 @@
             width: 85%;
             margin-left: auto;
             margin-right: auto;
+        }
+        .content a {
+            color: {color:Body Accent Color};
+            text-decoration: none;
         }
 
         .post-content {
