@@ -8,11 +8,14 @@ def get_file_contents(path):
     return file_content
 
 
-THEME_DIR = os.path.dirname(os.path.realpath(__file__))
-HTML_PATH = os.path.join(THEME_DIR, 'tumblr_theme.html')
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
+THEME_DIR = os.path.join(BASE_DIR, 'theme')
+HTML_PATH = os.path.join(THEME_DIR, 'theme.html')
 CSS_PATH = os.path.join(THEME_DIR, 'theme.css')
 JS_PATH = os.path.join(THEME_DIR, 'script.js')
-EXPORT_DIR = os.path.join(THEME_DIR, 'export')
+
+EXPORT_DIR = os.path.join(BASE_DIR, 'export')
 EXPORT_PATH = os.path.join(EXPORT_DIR, 'theme.html')
 
 if __name__ == '__main__':
