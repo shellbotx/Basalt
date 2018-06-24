@@ -1,7 +1,7 @@
 body {
     margin: 0px;
-    background-color: {color:Body Color};
-    color: {color:Body Text Color};
+    background-color: "{color:Body Color}";
+    color: "{color:Body Text Color}";
     font-family: '{text:Custom Body Font}', {font:Body};
 }
 

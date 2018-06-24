@@ -8,30 +8,30 @@ def get_file_contents(path):
     return file_content
 
 
-BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
-THEME_DIR = os.path.join(BASE_DIR, 'theme')
-HTML_PATH = os.path.join(THEME_DIR, 'theme.html')
-CSS_PATH = os.path.join(THEME_DIR, 'theme.css')
-JS_PATH = os.path.join(THEME_DIR, 'script.js')
+theme_dir = os.path.join(base_dir, 'theme')
+html_path = os.path.join(theme_dir, 'theme.html')
+css_path = os.path.join(theme_dir, 'theme.css')
+js_path = os.path.join(theme_dir, 'script.js')
 
-EXPORT_DIR = os.path.join(BASE_DIR, 'export')
-EXPORT_PATH = os.path.join(EXPORT_DIR, 'theme.html')
+export_dir = os.path.join(base_dir, 'export')
+export_path = os.path.join(export_dir, 'export.html')
 
 if __name__ == '__main__':
     # Create the processed html string
-    working_html = get_file_contents(HTML_PATH)
+    working_html = get_file_contents(html_path)
     working_html = working_html.replace(
-        '/* INSERTCSSHERE */', get_file_contents(CSS_PATH))
+        '/* INSERTCSSHERE */', get_file_contents(css_path))
     working_html = working_html.replace(
-        '// INSERTJSHERE', get_file_contents(JS_PATH))
+        '// INSERTJSHERE', get_file_contents(js_path))
 
     # Create export directory
-    if not os.path.exists(EXPORT_DIR):
-        os.makedirs(EXPORT_DIR)
+    if not os.path.exists(export_dir):
+        os.makedirs(export_dir)
 
     # Export html string to export_path
-    with open(EXPORT_PATH, 'w') as export:
+    with open(export_path, 'w') as export:
         export.write(working_html)
 
-    print('Theme successfully exported to "{}"'.format(EXPORT_PATH))
+    print('Theme successfully exported to "{}"'.format(export_path))

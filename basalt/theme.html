@@ -97,7 +97,7 @@
 
     <!-- Import masonry & jquery for grid support -->
     <script type="text/javascript" src="http://static.tumblr.com/d0qlne1/DiAl6ekb7/jquery-1.4.2.min.js"></script>
-    <script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+    <script type="text/javascript" src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
 
     <!-- JS -->
     <script type='text/javascript'>
@@ -187,7 +187,7 @@
         {block:Text}
         <div class='post-content type-text'>
             {block:Title}
-                <a href='{Permalink}'>
+                <a href='{Permalink}' {Target}>
                     <h1 class='title'>{Title}</h1>
                 </a>
             {/block:Title}
@@ -325,7 +325,7 @@
     {/block:Pagination}
 
     <footer class='accent-theme'>
-        <p>{Title} // {CopyrightYears}<p>
+        <p>{Title} // © {CopyrightYears}<p>
     </footer>
 </body>
 </html>
