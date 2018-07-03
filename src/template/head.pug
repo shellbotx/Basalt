@@ -1,0 +1,43 @@
+// HEADER
+
+head
+	title {block:TagPage}{Tag} | {/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery} | {/block:SearchPage}{block:PostSummary}{PostSummary} | {/block:PostSummary}{Title}
+
+	| {block:Description}
+	meta(name='Description' content='{MetaDescription}')
+	| {/block:Description}
+
+	| {block:Hidden}
+	// Tumblr Meta
+	meta(name='color:Body Color' content='|#ffffff')
+	meta(name='color:Body Accent Color' content='#0000ff')
+	meta(name='color:Body Text Color' content='#000000')
+
+	meta(name='font:Body' content='Arial, Helvetica, sans-serif')
+	meta(name='text:Custom Title Font' content='')
+	meta(name='text:Custom Header Font' content='')
+	meta(name='text:Custom Body Font' content='')
+	meta(name='text:Google Font Imports' content='')
+
+	meta(name='text:Website Link' content='')
+	meta(name='text:Facebook Link' content='')
+	meta(name='text:Twitter Link' content='')
+	meta(name='text:Instagram Link' content='')
+	| {/block:Hidden}
+
+	meta(name='viewport' content='width=device-width, initial-scale=1')
+	link(rel='shortcut icon' href='{Favicon}')
+	link(rel='alternate' type='application/rss+xml' href='{RSS}')
+	link(rel='apple-touch-icon-precomposed' href='{PortraitURL-128}')
+
+	// Import GoogleFonts
+	| {block:IfGoogleFontImports}
+	link(rel='stylesheet' href='https://fonts.googleapis.com/css?family={text:Google Font Imports}')
+	| {/block:IfGoogleFontImports}
+
+	// Import FontAwesome
+	link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+
+	// Import jQuery & masonry
+	script(type="text/javascript" src="http://static.tumblr.com/d0qlne1/DiAl6ekb7/jquery-1.4.2.min.js")
+	script(type="text/javascript" src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js")

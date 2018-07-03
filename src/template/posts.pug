@@ -1,0 +1,107 @@
+//- Posts
+//- \{block:IndexPage} data-columns \{/block:IndexPage}
+//- \{block:PermalinkPage} class='js-column' \{/block:PermalinkPage}
+main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:IndexPage}")
+    | {block:Posts}
+
+    article.post("{block:PermalinkPage} class='js-column' {/block:PermalinkPage}")
+
+        //- text post
+        | {block:Text}
+        div.post-content.type-text
+            | {block:Title}
+            a(href='{Permalink}' \{Target})
+                h1.title {Title}
+            | {/block:Title}
+
+            | {Body}
+        | {/block:Text}
+
+        //- photo post
+        | {block:Photo}
+        figure.post-content.type-photo
+            | {LinkOpenTag}
+            img(src='{PhotoURL-HighRes}' alt='{PhotoAlt}')
+            | {LinkCloseTag}
+        
+            | {block:Caption}
+            figcaption.caption {Caption}
+            | {/block:Caption}
+        | {/block:Photo}
+
+        //- photoset post
+        | {block:Photoset}
+        figure.post-content.type-photoset
+            | {Photoset}
+
+            | {block:Caption}
+            figcaption.caption {Caption}
+            | {/block:Caption}
+        | {/block:Photoset}
+
+        //- link post
+        | {block:Link}
+        div.post-content.type-link
+            a(href='{URL}' class='link-name' \{Target}) {Name}
+
+            | {block:Description}
+            div.description {Description}
+            | {/block:Description}
+        | {/block:Link}
+
+        //- audio post
+        | {block:Audio}
+        div.post-content.type-audio
+            | {block:AudioEmbed}
+            | {AudioEmbed color="white"}
+            | {/block:AudioEmbed}
+
+            | {block:Caption}
+            div.caption {Caption}
+            | {/block:Caption}
+        | {/block:Audio}
+
+        //- video post
+        | {block:Video}
+        div.post-content.type-video
+            | {Video-700}
+
+            | {block:Caption}
+            div.caption {Caption}
+            | {/block:Caption}
+        | {/block:Video}
+
+        //- date post
+        | {block:Date}
+        footer.contentinfo(role='contentinfo')
+            a(href='{Permalink}' title='{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}')
+                | {TimeAgo}
+
+            | {block:NoteCount}
+            a.note-count(href='{Permalink}#notes')
+                | {NoteCountWithLabel}
+            | {/block:NoteCount}
+
+            | {block:RebloggedFrom}
+            a.reblog-link(href='{ReblogParentURL}')
+                | {ReblogParentName}
+            | {/block:RebloggedFrom}
+
+            | {block:PermalinkPage}
+            | {block:HasTags}
+            ul.tags
+                | {block:Tags}
+                li
+                    a(href='{TagUrl}') \#{Tag}
+                | {/block:Tags}
+            | {/block:HasTags}
+
+            | {block:PostNotes}
+            div.post-notes
+                | {PostNotes}
+            | {/block:PostNotes}
+            | {/block:PermalinkPage}
+        | {/block:Date}
+| {/block:Posts}
+
+div.clear

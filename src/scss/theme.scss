@@ -1,8 +1,14 @@
+// NOTE: /*--- is  an escape sequence. Lines that begin with that pattern
+// are ignored by sass and injected into the final .css
+
+@import 'reset';
+
+
 body {
     margin: 0px;
-    background-color: "{color:Body Color}";
-    color: "{color:Body Text Color}";
-    font-family: '{text:Custom Body Font}', {font:Body};
+    background-color: '{color:Body Color}';
+    color: '{color:Body Text Color}';
+    /*---font-family: '{text:Custom Body Font}', {font:Body};/**/
 }
 
 .avatar-shape-circle {
@@ -10,8 +16,8 @@ body {
 }
 
 .accent-theme {
-    background-color: {BackgroundColor};
-    color: {AccentColor};
+    /*---background-color: {BackgroundColor};/**/
+    /*---color: {AccentColor};/**/
 }
 
 #header {
@@ -20,12 +26,12 @@ body {
     height: 256px;
     max-height: 35vh;
 
-    {block:ShowHeaderImage}
+    /*--- {block:ShowHeaderImage}
         background-image: url('{HeaderImage}');
         background-repeat: no-repeat;
         background-attachment: relative;
         background-position: center;
-    {/block:ShowHeaderImage}
+    {/block:ShowHeaderImage} /**/
 }
 #header .column {
     height: 100%;
@@ -55,8 +61,8 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
     z-index: 1;
-    font-family: '{text:Custom Title Font}', {TitleFont};
-    color: {TitleColor};
+    /*---font-family: '{text:Custom Title Font}', {TitleFont};/**/
+    /*---color: {TitleColor};/**/
 }
 #blog-details .blog-title a {
     color: inherit;
@@ -71,7 +77,7 @@ body {
     display: block;
     text-decoration: none;
     margin-bottom: 7px;
-    color: {AccentColor};
+    /*---color: {AccentColor};/**/
 }
 #social-links i {
     display: block;
@@ -92,7 +98,7 @@ body {
     margin-right: auto;
 }
 .content a {
-    color: {color:Body Accent Color};
+    /*---color: {color:Body Accent Color};/**/
     text-decoration: none;
 }
 
@@ -141,14 +147,14 @@ body {
     transition: width .55s ease;
 
     border: none;
-    border-bottom: solid {AccentColor} 1px;
-    color: {AccentColor};
+    /*---border-bottom: solid {AccentColor} 1px;/**/
+    /*---color: {AccentColor};/**/
 }
 .search-bar input::-webkit-input-placeholder,
 .search-bar input:-moz-placeholder, /* Firefox 18- */
 .search-bar input::-moz-placeholder,  /* Firefox 19+ */
 .search-bar input:-ms-input-placeholder {
-   color: {AccentColor};
+   /*---color: {AccentColor};/**/
 }
 .search-bar .icon {
     position: absolute;
@@ -171,4 +177,5 @@ footer {
     text-align: center;
 }
 
-{CustomCSS}
+
+/*---{CustomCSS}/**/

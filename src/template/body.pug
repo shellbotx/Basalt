@@ -1,0 +1,60 @@
+body(class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage}is-permalink-page{/block:PermalinkPage}')
+    include header.pug
+    
+    // Navigation
+    nav
+        ul
+            | {block:HasPages}
+            | {block:Pages}
+            li
+                a(href="{URL}") {Label}
+            | {/block:Pages}
+            | {/block:HasPages}
+            | {block:SubmissionsEnabled}
+            li
+                a(href='/submit') {SubmitLabel}
+            | {/block:SubmissionsEnabled}
+            | {block:AskEnabled}
+            li
+                a(href='/ask') {AskLabel}
+            | {/block:AskEnabled}
+
+    include posts.pug
+
+    | {block:SearchPage}
+    // Search Page
+    div.search-page.message
+        | {block :SearchResults}
+        p.search-results {lang:Search results for SearchQuery 2}
+        | {/block :SearchResults}
+
+        | {block :NoSearchResults}
+        p.search-results {lang:Sorry no results for SearchQuery 2}
+        | {/block :NoSearchResults}
+
+        span.divider
+    | {/block:SearchPage}
+
+    | {block:TagPage}
+    // Tag Page
+    div.tag-page.message
+        p.tag-wrapper {lang:Showing posts tagged Tag 2}
+        span.divider
+    | {/block:TagPage}
+
+    | {block:Pagination}
+    // Pagination
+    nav.pagination
+        ul
+            | {block:PreviousPage}
+            li
+                a(href='{PreviousPage}') {lang:Previous}
+            | {/block:PreviousPage}
+            | {block:NextPage}
+            li
+                a(href='{NextPage}') {lang:Next}
+            | {/block:NextPage}
+    | {/block:Pagination}
+
+    footer.accent-theme
+        p {Title} // © {CopyrightYears}

@@ -1,0 +1,43 @@
+header#header.accent-theme(role='banner')
+
+    //- Could be moved to header/search.pug
+    div#search-column.column.minor
+        form.search(action='/search' method='get')
+            span.icon
+                i.fa.fa-search
+            input(type='text' name='q' value='{SearchQuery}' placeholder='...')
+
+    div#blog-details.column.major
+        | {block:ShowAvatar}
+        img(class='avatar avatar-shape-{AvatarShape}' src='{PortraitURL-128}')
+        | {/block:ShowAvatar}
+
+        | {block:ShowTitle}
+        h1.blog-title
+            a(href='/' title='{lang:Home}') {Title}
+        | {/block:ShowTitle}
+
+        | {block:ShowDescription}
+        p.blog-description {Description}
+        | {/block:ShowDescription}
+ 
+    div.column.minor
+        div#social-links
+            | {block:IfWebsiteLink}
+            a(href='{text:Website Link}')
+                i.fa.fa-globe.fa-2x(aria-hidden='true')
+            | {block:IfWebsiteLink}
+            | {block:IfFacebookLink}
+            a(href='{text:Facebook Link}')
+                i.fa.fa-facebook.fa-2x(aria-hidden='true')
+            | {/block:IfFacebookLink}
+            | {block:IfTwitterLink}
+            a(href='{text:Twitter Link}')
+                i.fa.fa-twitter.fa-2x(aria-hidden='true')
+            | {/block:IfTwitterLink}
+            | {block:IfInstagramLink}
+            a(href='{text:Instagram Link}')
+                i.fa.fa-instagram.fa-2x(aria-hidden='true')
+            | {/block:IfInstagramLink}
+
+    div.clear
