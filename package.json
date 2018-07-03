@@ -1,6 +1,6 @@
 {
   "name": "basalt",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Still under heavy construction. But feel free to give it a look!",
   "main": "index.js",
   "scripts": {
