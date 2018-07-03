@@ -19,7 +19,7 @@ const config = {
 
 	output: {
 		path: export_dir,
-		filename: '[name].js'
+		filename: '[name].bundle.js'
 	},
 
 	module: {
@@ -79,7 +79,7 @@ const config = {
 		new HtmlWebpackPlugin({
 			filename: 'basalt.html',
 			template: './template/index.pug',
-			inlineSource: '.(js|css)',
+			inlineSource: '(basalt.bundle.js|basalt.css)', // only inline js and css
 		}),
 		new HtmlWebpackInlineSourcePlugin()
 	],

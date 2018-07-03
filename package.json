@@ -1,7 +1,7 @@
 {
   "name": "basalt",
   "version": "0.1.0",
-  "description": "Still under heavy construction. But feel free to give it a look!",
+  "description": "A responsive, bold, grid-based tumblr theme.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode development",
@@ -36,5 +36,9 @@
     "style-loader": "^0.21.0",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "masonry-layout": "^4.2.1"
   }
 }
