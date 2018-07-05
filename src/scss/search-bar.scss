@@ -1,0 +1,52 @@
+// Search Bar
+
+.c-search-bar {
+    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
+    // position: relative;
+    
+    &--bottom {
+        position: absolute;
+        bottom: 0;
+    }
+
+
+    &__icon {
+        position: absolute;
+        margin-left: 5px;
+        z-index: 1;
+    }
+
+
+    &__input {
+        background: rgba(0, 0, 0, 0);
+        width: 25px;
+        height: 20px;
+        font-size: 10pt;
+        float: left;
+        padding-left: 30px;
+
+        -webkit-transition: width .55s ease;
+        -moz-transition: width .55s ease;
+        -ms-transition: width .55s ease;
+        -o-transition: width .55s ease;
+        transition: width .55s ease;
+
+        border: none;
+        /*---border-bottom: solid {AccentColor} 1px;/**/
+        /*---color: {AccentColor};/**/
+    }
+}
+.c-search-bar__input::-webkit-input-placeholder,
+.c-search-bar__input:-moz-placeholder, /* Firefox 18- */
+.c-search-bar__input::-moz-placeholder,  /* Firefox 19+ */
+.c-search-bar__input:-ms-input-placeholder {
+   /*---color: {AccentColor};/**/
+}
+.c-search-bar__input:hover,
+.c-search-bar__input:focus,
+.c-search-bar__input:active {
+    outline: none;
+    width: 100%;
+}

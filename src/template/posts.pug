@@ -1,15 +1,14 @@
-//- Posts
-main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:IndexPage}")
+main.l-posts-container(role='main' "{block:IndexPage} data-columns {/block:IndexPage}")
     | {block:Posts}
 
-    article.post("{block:PermalinkPage} class='js-column' {/block:PermalinkPage}")
+    article.c-post("{block:PermalinkPage} class='js-column' {/block:PermalinkPage}")
 
         //- text post
         | {block:Text}
-        div.post-content.type-text
+        div.c-post__content.c-post__content--type-text
             | {block:Title}
-            a(href='{Permalink}' \{Target})
-                h1.title {Title}
+            h1.c-post__title 
+                a.c-anchor(href='{Permalink}' \{Target}) {Title}
             | {/block:Title}
 
             | {Body}
@@ -17,7 +16,7 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
 
         //- photo post
         | {block:Photo}
-        figure.post-content.type-photo
+        figure.c-post__content.c-post__content--type-photo
             | {LinkOpenTag}
             img(src='{PhotoURL-HighRes}' alt='{PhotoAlt}')
             | {LinkCloseTag}
@@ -29,7 +28,7 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
 
         //- photoset post
         | {block:Photoset}
-        figure.post-content.type-photoset
+        figure.c-post__content.c-post__content--type-photoset
             | {Photoset}
 
             | {block:Caption}
@@ -39,7 +38,7 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
 
         //- link post
         | {block:Link}
-        div.post-content.type-link
+        div.c-post__content.c-post__content--type-link
             a(href='{URL}' class='link-name' \{Target}) {Name}
 
             | {block:Description}
@@ -49,7 +48,7 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
 
         //- audio post
         | {block:Audio}
-        div.post-content.type-audio
+        div.c-post__content.c-post__content--type-audio
             | {block:AudioEmbed}
             | {AudioEmbed color="white"}
             | {/block:AudioEmbed}
@@ -61,7 +60,7 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
 
         //- video post
         | {block:Video}
-        div.post-content.type-video
+        div.c-post__content.c-post__content--type-video
             | {Video-700}
 
             | {block:Caption}
@@ -69,19 +68,19 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
             | {/block:Caption}
         | {/block:Video}
 
-        //- date post
+        //- post footer
         | {block:Date}
-        footer.contentinfo(role='contentinfo')
-            a(href='{Permalink}' title='{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}')
+        footer.c-post__footer(role='contentinfo')
+            a.c-anchor(href='{Permalink}' title='{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}')
                 | {TimeAgo}
 
             | {block:NoteCount}
-            a.note-count(href='{Permalink}#notes')
+            a.c-anchor(href='{Permalink}#notes')
                 | {NoteCountWithLabel}
             | {/block:NoteCount}
 
             | {block:RebloggedFrom}
-            a.reblog-link(href='{ReblogParentURL}')
+            a.c-anchor(href='{ReblogParentURL}')
                 | {ReblogParentName}
             | {/block:RebloggedFrom}
 
@@ -90,7 +89,7 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
             ul.tags
                 | {block:Tags}
                 li
-                    a(href='{TagUrl}') \#{Tag}
+                    a.c-anchor(href='{TagUrl}') \#{Tag}
                 | {/block:Tags}
             | {/block:HasTags}
 
@@ -102,4 +101,4 @@ main#post-container.content(role='main' "{block:IndexPage} data-columns {/block:
         | {/block:Date}
 | {/block:Posts}
 
-div.clear
+div.l-clear

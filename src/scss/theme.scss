@@ -2,179 +2,102 @@
 // are ignored by sass and injected into the final .css
 
 @import 'reset';
+@import 'header';
+@import 'search-bar';
+@import 'post';
 
 
-body {
-    margin: 0px;
+.c-page {
     background-color: '{color:Body Color}';
     color: '{color:Body Text Color}';
     /*---font-family: '{text:Custom Body Font}', {font:Body};/**/
+    font-size: 1em;
 }
 
-.avatar-shape-circle {
-    border-radius: 50%;
+
+.c-anchor {
+    /*---color: {color:Body Accent Color};/**/
+    text-decoration: none;
+
+    :hover {
+        text-decoration: underline;
+    }
 }
 
-.accent-theme {
+
+.c-avatar {
+    &--center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &--shape-circle {
+        border-radius: 50%;
+    }
+}
+
+
+.c-blog-title {
+    display: block;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    /*---color: {TitleColor};/**/
+    /*---font-family: '{text:Custom Title Font}', {TitleFont};/**/
+    font-size: 2em;
+
+    &__a {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+
+.c-blog-description {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+
+.c-blog-footer {
     /*---background-color: {BackgroundColor};/**/
     /*---color: {AccentColor};/**/
-}
 
-#header {
-    display: block;
-    padding: 2% 5%;
-    height: 256px;
-    max-height: 35vh;
-
-    /*--- {block:ShowHeaderImage}
-        background-image: url('{HeaderImage}');
-        background-repeat: no-repeat;
-        background-attachment: relative;
-        background-position: center;
-    {/block:ShowHeaderImage} /**/
-}
-#header .column {
-    height: 100%;
-    float: left;
-    position: relative;
-}
-#header .column.minor {
-    width: 30%;
-}
-#header .column.major {
-    width: 40%;
-}
-
-#blog-details .avatar {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-#blog-details .blog-description {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    padding: 10px;
     text-align: center;
 }
-#blog-details .blog-title {
-    display: block;
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    z-index: 1;
-    /*---font-family: '{text:Custom Title Font}', {TitleFont};/**/
-    /*---color: {TitleColor};/**/
-}
-#blog-details .blog-title a {
-    color: inherit;
-    text-decoration: none;
-}
 
-#social-links {
+
+.c-social-links {
     padding-top: 10px;
     float: right;
-}
-#social-links a {
+
+    &__a {
     display: block;
     text-decoration: none;
     margin-bottom: 7px;
     /*---color: {AccentColor};/**/
-}
-#social-links i {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-#search-column .search {
-    position: absolute;
-    bottom: 0;
+    }
+    &__i {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 }
 
-.content {
-    display: block;
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.content a {
-    /*---color: {color:Body Accent Color};/**/
-    text-decoration: none;
-}
 
-#post-container {
-    width: 100%;
-    width: 1280px;
-}
-.post {
-    float: left;
-    width: 25%;
-    max-width: 400px;
-    height: 400px;
-    margin: 12px;
-    border: 1px solid red;
-    overflow: hidden;
-}
-.post--height2 {
-    height: 450px;
-}
-.post--height3 {
-    height: 600px;
-}
-
-/* search bar */
-.search {
-    width: 100%;
-}
-.search-bar {
-    width: 100%;
-    vertical-align: middle;
-    white-space: nowrap;
-    position: relative;
-}
-.search-bar input {
-    background: rgba(0, 0, 0, 0);
-    width: 25px;
-    height: 20px;
-    font-size: 10pt;
-    float: left;
-    padding-left: 30px;
-
-    -webkit-transition: width .55s ease;
-    -moz-transition: width .55s ease;
-    -ms-transition: width .55s ease;
-    -o-transition: width .55s ease;
-    transition: width .55s ease;
-
-    border: none;
-    /*---border-bottom: solid {AccentColor} 1px;/**/
-    /*---color: {AccentColor};/**/
-}
-.search-bar input::-webkit-input-placeholder,
-.search-bar input:-moz-placeholder, /* Firefox 18- */
-.search-bar input::-moz-placeholder,  /* Firefox 19+ */
-.search-bar input:-ms-input-placeholder {
-   /*---color: {AccentColor};/**/
-}
-.search-bar .icon {
-    position: absolute;
-    margin-left: 5px;
-    z-index: 1;
-}
-.search-bar input:hover,
-.search-bar input:focus,
-.search-bar input:active {
-    outline: none;
-    width: 100%;
-}
-
-.clear {
+.l-clear {
   clear: both;
 }
 
-footer {
-    padding: 10px;
-    text-align: center;
+
+.l-posts-container {
+    display: block;
+    width: 100%;
+    width: 1280px;
 }
 
 

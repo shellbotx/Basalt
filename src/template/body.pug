@@ -1,4 +1,4 @@
-body(class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage}is-permalink-page{/block:PermalinkPage}')
+body.c-page(class='{block:IndexPage}is-index-page{/block:IndexPage} {block:PermalinkPage}is-permalink-page{/block:PermalinkPage}')
     include header.pug
     
     // Navigation
@@ -44,7 +44,7 @@ body(class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage
 
     | {block:Pagination}
     // Pagination
-    nav.pagination
+    nav.c-pagination
         ul
             | {block:PreviousPage}
             li
@@ -56,5 +56,5 @@ body(class='{block:IndexPage}is-index-page{/block:IndexPage}{block:PermalinkPage
             | {/block:NextPage}
     | {/block:Pagination}
 
-    footer.accent-theme
+    footer.c-blog-footer
         p {Title} // © {CopyrightYears}

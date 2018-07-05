@@ -1,43 +1,43 @@
-header#header.accent-theme(role='banner')
+header.c-header(role='banner')
 
     //- Could be moved to header/search.pug
-    div#search-column.column.minor
-        form.search(action='/search' method='get')
-            span.icon
+    div.c-header__column.c-header__column--small
+        form.c-search-bar--bottom(action='/search' method='get')
+            span.c-search-bar__icon
                 i.fa.fa-search
-            input(type='text' name='q' value='{SearchQuery}' placeholder='...')
+            input.c-search-bar__input(type='text' name='q' value='{SearchQuery}' placeholder='...')
 
-    div#blog-details.column.major
+    div.c-header__column.c-header__column--large
         | {block:ShowAvatar}
-        img(class='avatar avatar-shape-{AvatarShape}' src='{PortraitURL-128}')
+        img.c-avatar.c-avatar--center(class='c-avatar--shape-{AvatarShape}' src='{PortraitURL-128}')
         | {/block:ShowAvatar}
 
         | {block:ShowTitle}
-        h1.blog-title
-            a(href='/' title='{lang:Home}') {Title}
+        h1.c-blog-title
+            a.c-blog-title__a(href='/' title='{lang:Home}') {Title}
         | {/block:ShowTitle}
 
         | {block:ShowDescription}
-        p.blog-description {Description}
+        p.c-blog-description {Description}
         | {/block:ShowDescription}
  
-    div.column.minor
-        div#social-links
+    div.c-header__column.c-header__column--small
+        div.c-social-links
             | {block:IfWebsiteLink}
-            a(href='{text:Website Link}')
-                i.fa.fa-globe.fa-2x(aria-hidden='true')
+            a.c-social-links__a(href='{text:Website Link}')
+                i.c-social-links__i.fa.fa-globe.fa-2x(aria-hidden='true')
             | {block:IfWebsiteLink}
             | {block:IfFacebookLink}
-            a(href='{text:Facebook Link}')
-                i.fa.fa-facebook.fa-2x(aria-hidden='true')
+            a.c-social-links__a(href='{text:Facebook Link}')
+                i.c-social-links__i.fa.fa-facebook.fa-2x(aria-hidden='true')
             | {/block:IfFacebookLink}
             | {block:IfTwitterLink}
-            a(href='{text:Twitter Link}')
-                i.fa.fa-twitter.fa-2x(aria-hidden='true')
+            a.c-social-links__a(href='{text:Twitter Link}')
+                i.c-social-links__i.fa.fa-twitter.fa-2x(aria-hidden='true')
             | {/block:IfTwitterLink}
             | {block:IfInstagramLink}
-            a(href='{text:Instagram Link}')
-                i.fa.fa-instagram.fa-2x(aria-hidden='true')
+            a.c-social-links__a(href='{text:Instagram Link}')
+                i.c-social-links__i.fa.fa-instagram.fa-2x(aria-hidden='true')
             | {/block:IfInstagramLink}
 
     div.clear
