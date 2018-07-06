@@ -2,7 +2,7 @@ body.c-page(class='{block:IndexPage}is-index-page{/block:IndexPage} {block:Perma
     include header.pug
     
     // Navigation
-    nav
+    nav.c-page__navigation
         ul
             | {block:HasPages}
             | {block:Pages}
@@ -31,7 +31,6 @@ body.c-page(class='{block:IndexPage}is-index-page{/block:IndexPage} {block:Perma
         | {block :NoSearchResults}
         p.search-results {lang:Sorry no results for SearchQuery 2}
         | {/block :NoSearchResults}
-
         span.divider
     | {/block:SearchPage}
 
@@ -56,5 +55,6 @@ body.c-page(class='{block:IndexPage}is-index-page{/block:IndexPage} {block:Perma
             | {/block:NextPage}
     | {/block:Pagination}
 
-    footer.c-blog-footer
+    footer.c-page__footer
+        //- Insert web links & RSS feed
         p {Title} // © {CopyrightYears}

@@ -6,12 +6,12 @@ $(document).ready(function() {
 
 $(window).load(function() {
     // configure masonry
-    $('#post-container').masonry({
-            itemSelector: '.post',
+    $('.l-post-container').masonry({
+            itemSelector: '.c-post',
             columnWidth: 400,
         },
         function() {
-            $('#post-container').masonry({ appendedContent: $(this) });
+            $('.l-post-container').masonry({ appendedContent: $(this) });
         }
     );
 });

@@ -1,13 +1,13 @@
-header.c-header(role='banner')
+header.c-page__header(role='banner')
 
     //- Could be moved to header/search.pug
-    div.c-header__column.c-header__column--small
+    div.l-column.l-column--small
         form.c-search-bar--bottom(action='/search' method='get')
             span.c-search-bar__icon
                 i.fa.fa-search
             input.c-search-bar__input(type='text' name='q' value='{SearchQuery}' placeholder='...')
 
-    div.c-header__column.c-header__column--large
+    div.l-column.l-column--large
         | {block:ShowAvatar}
         img.c-avatar.c-avatar--center(class='c-avatar--shape-{AvatarShape}' src='{PortraitURL-128}')
         | {/block:ShowAvatar}
@@ -21,7 +21,7 @@ header.c-header(role='banner')
         p.c-blog-description {Description}
         | {/block:ShowDescription}
  
-    div.c-header__column.c-header__column--small
+    div.l-column.l-column--small
         div.c-social-links
             | {block:IfWebsiteLink}
             a.c-social-links__a(href='{text:Website Link}')

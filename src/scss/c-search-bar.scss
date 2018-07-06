@@ -21,11 +21,12 @@
 
     &__input {
         background: rgba(0, 0, 0, 0);
-        width: 25px;
-        height: 20px;
-        font-size: 10pt;
+        width: 1.5em;
+        height: 1.25em;
         float: left;
-        padding-left: 30px;
+        padding-left: 2em;
+
+        font-size: 0.85em;
 
         -webkit-transition: width .55s ease;
         -moz-transition: width .55s ease;
@@ -48,5 +49,5 @@
 .c-search-bar__input:focus,
 .c-search-bar__input:active {
     outline: none;
-    width: 100%;
+    width: 95%;
 }

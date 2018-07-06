@@ -1,0 +1,47 @@
+.c-post {
+    float: left;
+    width: 40%;
+    max-width: 400px;
+    height: 400px;
+
+    &--full {
+        float: none;
+        width: 100%;
+        max-width: none;
+        height: auto;
+    }
+
+    &__content {
+        max-height: 95%;
+        overflow: hidden;
+
+        &--type-text {
+           line-height: 1.2;
+
+            .c-post__title {
+                line-height: 1;
+            }
+        }
+    }
+
+    &__title {
+        float: left;
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+
+    &__footer {
+        line-height: 2;
+        text-align: right;
+    }
+}
+
+
+.c-like-reblog {
+    float: right;
+
+    li {
+        float: right;
+        padding: 0px 0px 7px 15px;
+    }
+}

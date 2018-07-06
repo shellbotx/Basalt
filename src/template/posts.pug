@@ -1,7 +1,7 @@
-main.l-posts-container(role='main' "{block:IndexPage} data-columns {/block:IndexPage}")
+div.c-page__content(role='main')
     | {block:Posts}
 
-    article.c-post("{block:PermalinkPage} class='js-column' {/block:PermalinkPage}")
+    article.c-post(class='{block:IndexPage}c-post--preview{/block:IndexPage} {block:PermalinkPage}c-post--full{/block:PermalinkPage}')
 
         //- text post
         | {block:Text}
@@ -10,6 +10,8 @@ main.l-posts-container(role='main' "{block:IndexPage} data-columns {/block:Index
             h1.c-post__title 
                 a.c-anchor(href='{Permalink}' \{Target}) {Title}
             | {/block:Title}
+            include like_reblog_buttons.pug
+            div.l-clear
 
             | {Body}
         | {/block:Text}
@@ -71,18 +73,20 @@ main.l-posts-container(role='main' "{block:IndexPage} data-columns {/block:Index
         //- post footer
         | {block:Date}
         footer.c-post__footer(role='contentinfo')
-            a.c-anchor(href='{Permalink}' title='{ShortMonth} {DayOfMonth}{DayOfMonthSuffix} {Year}')
-                | {TimeAgo}
+            | {block:RebloggedFrom}
+            a.c-anchor(href='{ReblogParentURL}') {ReblogParentName}
+            | &nbsp;&nbsp;&nbsp;&nbsp;
+            | {/block:RebloggedFrom}
 
             | {block:NoteCount}
             a.c-anchor(href='{Permalink}#notes')
-                | {NoteCountWithLabel}
+                | {NoteCount}
+                i.fa.fa-sticky-note-o(aria-hidden="true")
+            | &nbsp;&nbsp;&nbsp;&nbsp;
             | {/block:NoteCount}
 
-            | {block:RebloggedFrom}
-            a.c-anchor(href='{ReblogParentURL}')
-                | {ReblogParentName}
-            | {/block:RebloggedFrom}
+            a.c-anchor(href='{Permalink}' title='{TimeAgo}')
+                | {ShortMonth} {DayOfMonth} {ShortYear}
 
             | {block:PermalinkPage}
             | {block:HasTags}
@@ -99,6 +103,5 @@ main.l-posts-container(role='main' "{block:IndexPage} data-columns {/block:Index
             | {/block:PostNotes}
             | {/block:PermalinkPage}
         | {/block:Date}
-| {/block:Posts}
-
-div.l-clear
+    | {/block:Posts}
+    div.l-clear
