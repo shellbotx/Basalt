@@ -1,7 +1,9 @@
-div.c-page__content(role='main')
+div.c-page__content.l-grid(role='main')
+    div.l-grid__sizer
+    div.l-grid__gutter
     | {block:Posts}
 
-    article.c-post(class='{block:IndexPage}c-post--preview{/block:IndexPage} {block:PermalinkPage}c-post--full{/block:PermalinkPage}')
+    article.c-post.l-grid__item(class='{block:IndexPage}c-post--preview{/block:IndexPage} {block:PermalinkPage}c-post--full{/block:PermalinkPage}')
 
         //- text post
         | {block:Text}
@@ -20,7 +22,7 @@ div.c-page__content(role='main')
         | {block:Photo}
         figure.c-post__content.c-post__content--type-photo
             | {LinkOpenTag}
-            img(src='{PhotoURL-HighRes}' alt='{PhotoAlt}')
+            img.c-post__image(src='{PhotoURL-HighRes}' alt='{PhotoAlt}')
             | {LinkCloseTag}
         
             | {block:Caption}

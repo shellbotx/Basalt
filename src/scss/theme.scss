@@ -4,12 +4,12 @@
 @import 'reset';
 @import 'c-search-bar';
 @import 'c-post';
+@import 'l-grid';
 
 
 .c-page {
     font-size: 1em;
     /*---font-family: '{text:Custom Body Font}', {font:Body};/**/
-
 
     &__header {
         display: block;

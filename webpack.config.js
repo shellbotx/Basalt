@@ -80,6 +80,7 @@ const config = {
 			filename: 'basalt.html',
 			template: './template/index.pug',
 			inlineSource: '(basalt.bundle.js|basalt.css)', // only inline js and css
+			excludeChunks: ['vendors'],
 		}),
 		new HtmlWebpackInlineSourcePlugin()
 	],

@@ -1,18 +1,12 @@
 .c-post {
-    float: left;
-    width: 40%;
-    max-width: 400px;
-    height: 400px;
 
     &--full {
-        float: none;
-        width: 100%;
-        max-width: none;
+        max-width: 100%;
         height: auto;
     }
 
     &__content {
-        max-height: 95%;
+        max-height: 90%;
         overflow: hidden;
 
         &--type-text {
@@ -22,6 +16,12 @@
                 line-height: 1;
             }
         }
+    }
+
+    &__image {
+        display: block;
+        max-width: 100%;
+        // max-height: 100%;
     }
 
     &__title {

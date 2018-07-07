@@ -2,16 +2,14 @@ const $ = require('jquery');
 
 
 $(document).ready(function() {
-});
+    var $grid = $('.l-grid').masonry({
+        itemSelector: '.l-grid__item',
+        columnWidth: '.l-grid__sizer',
+        gutter: '.l-grid__gutter',
+        percentPosition: true,
+    });
 
-$(window).load(function() {
-    // configure masonry
-    $('.l-post-container').masonry({
-            itemSelector: '.c-post',
-            columnWidth: 400,
-        },
-        function() {
-            $('.l-post-container').masonry({ appendedContent: $(this) });
-        }
-    );
+    $grid.imagesLoaded().progress( function() {
+	  $grid.masonry('layout');
+	});
 });

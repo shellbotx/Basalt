@@ -1,0 +1,17 @@
+.l-grid { 
+	width: 100%;
+
+	&__gutter {
+		width: 5%;
+	}
+
+	&__item {
+        float: left;
+        width: 30%;
+        height: 400px;
+	}
+
+	&__sizer {
+		width: 30%;
+	}
+}
