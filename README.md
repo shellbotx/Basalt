@@ -1,10 +1,19 @@
 # Basalt
-## A bold responsive Tumblr theme.
+### A bold Tumblr theme.
 
-Working on it...
+version: 0.1.1
 
-version: 0.1.0
+Basalt is a theme for tumblr. It is responsive, supports text & photo posts, and is mobile-compatible. Basalt is in alpha, so don't expect everything to work just yet, this is a hobby project.
 
-Basalt is a theme for tumblr. It is fully functional & responsive, supports all post types, and is mobile compatible.
+live @ [basalt-theme.tumblr.com](HTTP://basalt-theme.tumblr.com)
+
+![Basalt preview](assets/preview.png)
 
 
+Developed using modern web technologies:
+
+- ES6
+- webpack
+- masonry
+
+Developed & designed by [shellbot](HTTP://twitter.com/_shellbot_)
