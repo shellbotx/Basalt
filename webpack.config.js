@@ -72,10 +72,10 @@ const config = {
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
 		}),
-		// new webpack.ProvidePlugin({
-		// 	$: 'jquery',
-		// 	jQuery: 'jquery',
-		// }),
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery',
+		}),
 		new HtmlWebpackPlugin({
 			filename: 'basalt.html',
 			template: './template/index.pug',
