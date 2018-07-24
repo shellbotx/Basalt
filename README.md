@@ -10,10 +10,12 @@ live @ [basalt-theme.tumblr.com](HTTP://basalt-theme.tumblr.com)
 ![Basalt preview](assets/preview.png)
 
 
-Developed using modern web technologies:
+Developed using modern web technologies and practices:
 
 - ES6
 - webpack
 - masonry
+- pug
+- BEM css
 
 Developed & designed by [shellbot](HTTP://twitter.com/_shellbot_)
