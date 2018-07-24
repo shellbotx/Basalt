@@ -1,9 +1,9 @@
-div.c-page__content.l-grid(role='main')
+div.c-page__content(class='{block:IndexPage}l-grid{/block:IndexPage}' role='main')
     div.l-grid__sizer
     div.l-grid__gutter
     | {block:Posts}
 
-    article.c-post.l-grid__item(class='{block:IndexPage}c-post--preview{/block:IndexPage} {block:PermalinkPage}c-post--full{/block:PermalinkPage}')
+    article.c-post(class='{block:IndexPage}l-grid__item{/block:IndexPage} {block:PermalinkPage}c-post--full{/block:PermalinkPage}')
 
         //- text post
         | {block:Text}
